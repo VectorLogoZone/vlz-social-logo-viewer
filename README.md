@@ -1,11 +1,30 @@
+# VLZ Social Logo Viewer [<img alt="VectorLogoZone Logo" src="https://social.vectorlogo.zone/favicon.svg" height="90" align="right" />](https://social.vectorlogo.zone/)
 
-# VLZ Social Logo Viewer [<img alt="VectorLogoZone Logo" src="https://social.vectorlogo.zone/favicon.svg" height="90" >](https://social.vectorlogo.zone/)
+[Social Logo Viewer](https://social.vectorlogo.zone/) is way to see all of a company's logos from the various social media sites.
 
-[Social Logo Viewer](https://social.vectorlogo.zone/) is a simple web wrapper around the [font-blast](https://github.com/eugene1g/font-blast) package.
+## Using
+
+Unfortunately, rate-limits mean that I cannot run it as an open service.  However, it is 
+fairly easy to run your own instance.
 
 ## Running
 
-It is a TypeScript node.js app, so `npm install` and then `npm run`.
+It is a TypeScript node.js app, so (once you have set the [settings](#settings): 
+```bash
+npm install
+npm run build
+npm run start
+```
+See the `run.sh` for how I run it in development.
+
+## Settings
+All settings are stored in environment variables.  The deploy and run scripts get them from a `.env` file.
+
+| name | description
+|------|----------------
+| USERNAME | the username to enter in the basic-auth dialog (default=`admin`)
+| PASSWORD | the password to enter in the basic-auth dialog (default=`password`)
+
 
 ## Contributing
 
@@ -31,5 +50,6 @@ See the [to do list](TODO.md) for a list of things that are planned.
 [![Zeit](https://www.vectorlogo.zone/logos/zeit/zeit-ar21.svg)](https://www.zeit.co/ "Hosting")
 
  * koa
+ * pino
 
 
