@@ -38,18 +38,25 @@ See the [to do list](TODO.md) for a list of things that are planned.
 
 ## Credits
 
+Website:
+
 [![Cloudflare](https://www.vectorlogo.zone/logos/cloudflare/cloudflare-ar21.svg)](https://www.cloudflare.com/ "CDN")
 [![Git](https://www.vectorlogo.zone/logos/git-scm/git-scm-ar21.svg)](https://git-scm.com/ "Version control")
 [![Github](https://www.vectorlogo.zone/logos/github/github-ar21.svg)](https://github.com/ "Code hosting")
 [![Google Analytics](https://www.vectorlogo.zone/logos/google_analytics/google_analytics-ar21.svg)](https://www.google.com/analytics "Traffic Measurement")
 [![Handlebars](https://www.vectorlogo.zone/logos/handlebarsjs/handlebarsjs-ar21.svg)](http://handlebarsjs.com/ "Templating")
+[![Koa](https://www.vectorlogo.zone/logos/koajs/koajs-ar21.svg)](https://koajs.com/ "Web framework")
 [![Node.js](https://www.vectorlogo.zone/logos/nodejs/nodejs-ar21.svg)](https://nodejs.org/ "Application Server")
 [![npm](https://www.vectorlogo.zone/logos/npmjs/npmjs-ar21.svg)](https://www.npmjs.com/ "JS Package Management")
+[![pino](https://www.vectorlogo.zone/logos/getpinoio/getpinoio-ar21.svg)](https://www.getpino.io/ "Logging")
 [![Shoelace CSS](https://www.vectorlogo.zone/logos/shoelacestyle/shoelacestyle-ar21.svg)](https://shoelace.style/ "CSS")
 [![TypeScript](https://www.vectorlogo.zone/logos/typescriptlang/typescriptlang-ar21.svg)](https://www.typescriptlang.org/ "Programming Language")
 [![Zeit](https://www.vectorlogo.zone/logos/zeit/zeit-ar21.svg)](https://www.zeit.co/ "Hosting")
 
- * koa
- * pino
+Logos:
 
-
+[![InstantLogoSearch](https://www.vectorlogo.zone/logos/instantlogosearch/instantlogosearch-ar21.svg)](https://www.instantlogosearch.com/ "Logos")
+[![SuperTinyIcons](https://www.vectorlogo.zone/logos/supertinyicons/supertinyicons-ar21.svg)](https://github.com/edent/SuperTinyIcons "tile versions")
+[![SVGPorn](https://www.vectorlogo.zone/logos/svgporn/svgporn-ar21.svg)](https://svgporn.com/ "Icon versions of various logos")
+ * https://github.com/simple-icons/simple-icons
+ * facebook, twitter, github, youtube
