@@ -84,8 +84,9 @@ rootRouter.get('/status.json', (ctx: Koa.Context) => {
     retVal["success"] = true;
     retVal["message"] = "OK";
     retVal["timestamp"] = new Date().toISOString();
-    retVal["lastmod"] = process.env['LASTMOD'] || null;
-    retVal["commit"] = process.env['COMMIT'] || null;
+    retVal["lastmod"] = process.env['LASTMOD'] || '(not set)';
+    retVal["commit"] = process.env['COMMIT'] || '(not set)';
+    retVal["tech"] = "NodeJS " + process.version;
     retVal["GA_ID"] = process.env['GA_ID'] || '(not set)';
     retVal["__dirname"] = __dirname;
     retVal["__filename"] = __filename;
@@ -112,10 +113,16 @@ rootRouter.get('/status.json', (ctx: Koa.Context) => {
     retVal["process.version"] = process.version;
     retVal["process.versions"] = process.versions;
 
+    ctx.set('Access-Control-Allow-Origin', '*');
+    ctx.set('Access-Control-Allow-Methods', 'POST, GET');
+    ctx.set('Access-Control-Max-Age', '604800');
+
     const callback = ctx.request.query['callback'];
     if (callback && callback.match(/^[$A-Za-z_][0-9A-Za-z_$]*$/) != null) {
+        ctx.type = 'text/javascript';
         ctx.body = callback + '(' + JSON.stringify(retVal) + ');';
     } else {
+        ctx.type = 'application/json';
         ctx.body = JSON.stringify(retVal);
     }
 });
