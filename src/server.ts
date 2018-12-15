@@ -46,7 +46,7 @@ app.use(KoaViews(path.join(__dirname, '..', 'views'), {
 
 function validateUser(ctx: Koa.Context): BasicAuth.BasicAuthResult | null {
     const user = BasicAuth(ctx.req);
-    if (user && user.name === (process.env['USERNAME'] || 'admin') && user.pass === (process.env['PASSWORD'] || 'password')) {
+    if (user && user.name === (process.env['USERNAME']) && user.pass === (process.env['PASSWORD'])) {
         return user;
     }
     ctx.status = 401;
@@ -84,8 +84,8 @@ rootRouter.get('/status.json', (ctx: Koa.Context) => {
     retVal["success"] = true;
     retVal["message"] = "OK";
     retVal["timestamp"] = new Date().toISOString();
-    retVal["lastmod"] = process.env['LASTMOD'] || '(not set)';
-    retVal["commit"] = process.env['COMMIT'] || '(not set)';
+    retVal["lastmod"] = process.env['LASTMOD'] || null;
+    retVal["commit"] = process.env['COMMIT'] || null;
     retVal["tech"] = "NodeJS " + process.version;
     retVal["GA_ID"] = process.env['GA_ID'] || '(not set)';
     retVal["__dirname"] = __dirname;

@@ -2,4 +2,4 @@
 
 export $(cat .env)
 
-tsc && node dist/server.js
+tsc && USERNAME=u PASSWORD=p node dist/server.js

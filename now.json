@@ -1,8 +1,13 @@
 {
-    "name": "vlz-social",
-    "alias": "social.vectorlogo.zone",
-    "features": {
-        "cloud": "v2"
-    },
-    "type": "docker"
+  "name": "vlz-social",
+  "alias": "social.vectorlogo.zone",
+  "env": {
+    "PASSWORD": "@password",
+    "USERNAME": "@username"
+  },
+  "features": {
+    "cloud": "v2"
+  },
+  "type": "docker",
+  "version": 1
 }
