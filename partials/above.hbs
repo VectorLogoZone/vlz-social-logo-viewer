@@ -2,32 +2,81 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>VectorLogoZone Social Logo Viewer</title>
+    <title>{{#if h1}}{{ title }}{{else}}{{ title }} - SVG Logo Search{{/if}}</title>
 
-    <script>
-        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-                (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-            m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous" />
+    <meta name="theme-color" content="#2c3e50" />
+    <style>
 
-        ga('create', 'UA-328425-25', 'auto');
-        ga('send', 'pageview');
+        /* faded border around logos in lists */
+        .logo-container img {
+            box-shadow: 0 0 5px #1d1d1d;
+            border: solid #ccc 1px;
+            margin: 6px;
+        }
 
-    </script>
-    <meta name="referrer" content="always">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <link rel="stylesheet" href="https://cdn.shoelace.style/1.0.0-beta22/shoelace.css" />
-    <style type="text/css">
+        .navbar-brand {
+            font-weight: bold;
+        }
+
+        .nav-link {
+            font-weight: bold;
+        }
+        .navbar-dark .navbar-nav .nav-link {
+            color: white;
+        }
+
+        .navbar-logo { height:31px;margin-top:-8px;padding-top:8px;}
+
+        h1 {
+            margin-top: 21px;
+        }
+
+        /* optional padding on visual inventory */
+        .padded { padding: 5px; }
+        .maxsize { max-width: 120px; max-height: 120px; }
+
+        /* hide outline on a clicked tab */
+        .nav-tabs > li.active > a, .nav-tabs > li.active > a:hover, .nav-tabs > li.active > a:focus {
+            outline: 0;
+        }
+
+        .gitlogo {
+            max-width: 120px;
+            max-height: 60px;
+            margin: 10px;
+        }
+
     </style>
     <link rel="shortcut icon" href="/favicon.ico">
-    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <script>if (window.top.location != window.location) { window.top.location.href = document.location.href; }</script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
 </head>
 <body>
+<nav class="navbar navbar-expand-sm navbar-dark navbar-static-top d-print-none" style="background-color:#1d8286;">
+    <div class="container-fluid">
+            <span>
+                <a class="navbar-brand mr-0" href="https://www.vectorlogo.zone/" title="{{site.title}}"><img alt="{{site.title}} Logo" class="navbar-logo mr-0" src="/images/vlz-logo-white.svg" /></a><a class="navbar-brand" href="/">&nbsp;-&nbsp;API</a>
+            </span>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+    </div>
+    <div class="navbar-collapse collapse navbar-right" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item"><a class="nav-link" href="/">Home</a></li>
+            <li class="nav-item"><a class="nav-link" href="https://github.com/VectorLogoZone/vlz-api">Source</a></li>
+        </ul>
+    </div><!--/.navbar-collapse -->
+</nav>
+
 <div class="container">
     <div class="row">
         <div class="col">
             <h1>
-                <a href="/index.html"><img src="/favicon.svg" style="width:24pt;height:24pt;margin-top:-4pt;"/></a>
-                <a href="https://www.vectorlogo.zone/">VectorLogoZone</a> Social Logo Viewer
-
+                {{#if h1}}{{h1}}{{else}}{{ title }}{{/if}}
             </h1>
+            <hr/>

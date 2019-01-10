@@ -1,6 +1,6 @@
 {
-  "name": "vlz-social",
-  "alias": "social.vectorlogo.zone",
+  "name": "vlz-api",
+  "alias": "api.vectorlogo.zone",
   "env": {
     "PASSWORD": "@password",
     "USERNAME": "@username"

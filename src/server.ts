@@ -50,7 +50,7 @@ function validateUser(ctx: Koa.Context): BasicAuth.BasicAuthResult | null {
         return user;
     }
     ctx.status = 401;
-    ctx.set('WWW-Authenticate', 'Basic realm="vlz-social-logo-viewer"');
+    ctx.set('WWW-Authenticate', 'Basic realm="vlz-api"');
     ctx.body = '401: Access denied';
 
     return null;
@@ -58,12 +58,8 @@ function validateUser(ctx: Koa.Context): BasicAuth.BasicAuthResult | null {
 
 const rootRouter = new KoaRouter();
 
-rootRouter.get('/index.html', async (ctx) => {
-    const user = validateUser(ctx);
-    if (!user) {
-        return;
-    }
-    await ctx.render('index.hbs', { user });
+rootRouter.get('/', async (ctx) => {
+    await ctx.render('index.hbs', { title: 'VectorLogoZone APIs' });
 });
 
 rootRouter.post('/index.html', async (ctx) => {
@@ -74,8 +70,8 @@ rootRouter.post('/index.html', async (ctx) => {
     await ctx.render('_index.hbs', { user });
 });
 
-rootRouter.get('/', async (ctx) => {
-    await ctx.redirect('/index.html');
+rootRouter.get('/index.html', async (ctx) => {
+    await ctx.redirect('/');
 });
 
 rootRouter.get('/status.json', (ctx: Koa.Context) => {
