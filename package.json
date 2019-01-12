@@ -18,7 +18,9 @@
     "koa-router": "^7.4.0",
     "koa-session": "^5.10.0",
     "koa-static": "^5.0.0",
-    "koa-views": "^6.1.4"
+    "koa-views": "^6.1.4",
+    "request": "^2.88.0",
+    "request-promise-native": "^1.0.5"
   },
   "devDependencies": {
     "@types/basic-auth": "^1.1.2",
@@ -30,6 +32,7 @@
     "@types/koa-static": "^4.0.0",
     "@types/koa-views": "^2.0.3",
     "@types/node": "^10.12.2",
+    "@types/request-promise-native": "^1.0.15",
     "ts-node": "^7.0.1",
     "typescript": "^3.1.5"
   }
