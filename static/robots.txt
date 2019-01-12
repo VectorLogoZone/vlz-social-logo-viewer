@@ -1,5 +1,5 @@
 #
-# robots.txt for fontblast.vectorlogo.zone
+# robots.txt for api.vectorlogo.zone
 #
 
 
