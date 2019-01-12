@@ -35,7 +35,8 @@ router.get('/api/github.json', async (ctx) => {
 
         ctx.body = {
             success: true,
-            data: [{url: url, description: "Github Profile Image", id: githubId, source: `https://github.com/${githubId}`}]
+            message: "OK",
+            results: [{url: url, description: "Github Profile Image", id: githubId, source: `https://github.com/${githubId}`}]
         };
     } catch (err) {
         ctx.body = { success: false, id: githubId, message: err.message, err };

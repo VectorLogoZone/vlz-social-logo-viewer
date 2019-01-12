@@ -31,7 +31,7 @@ router.get('/api/twitter.json', async (ctx) => {
 
     const url = (await rp(options)).profile_image_url;
 
-    ctx.body = { success: true, data: [ { url: url, description: "Twitter Profile Image", source: `https://twitter.com/${twitterId}` } ] };
+    ctx.body = { success: true, message: "OK", twitterId, results: [ { url: url, description: "Twitter Profile Image", source: `https://twitter.com/${twitterId}` } ] };
 });
 
 
