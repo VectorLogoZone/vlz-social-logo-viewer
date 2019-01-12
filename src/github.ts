@@ -10,13 +10,18 @@ router.get('/api/github.json', async (ctx) => {
 
     let githubId = ctx.query["id"];
     if (!githubId) {
-        ctx.body = { success: false, message: 'Missing Github ID ("id" parameter")'}
+        ctx.body = { success: false, message: 'Missing Github ID ("id" parameter")'};
         return;
     }
 
     const slashPos = githubId.indexOf('/');
     if (slashPos > 0) {
         githubId = githubId.slice(0, slashPos);
+    }
+
+    if (!githubId.match( /^[a-z\d](?:[a-z\d]|-(?=[a-z\d])){0,38}$/i )) {
+        ctx.body = { success: false, id: githubId, message: 'Invalid Github ID ("id" parameter)'};
+        return;
     }
 
     const options = {
@@ -30,10 +35,10 @@ router.get('/api/github.json', async (ctx) => {
 
         ctx.body = {
             success: true,
-            data: [{url: url, description: "Github Profile Image", source: `https://github.com/${githubId}`}]
+            data: [{url: url, description: "Github Profile Image", id: githubId, source: `https://github.com/${githubId}`}]
         };
     } catch (err) {
-        ctx.body = { success: false, message: err.message, err };
+        ctx.body = { success: false, id: githubId, message: err.message, err };
     }
 });
 
