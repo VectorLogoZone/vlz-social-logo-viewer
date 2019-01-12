@@ -10,6 +10,7 @@ import * as Pino from 'pino';
 
 import * as github from './github';
 import * as twitter from './twitter';
+import * as oembed from './oembed';
 
 const app = new Koa();
 app.proxy = true;
@@ -129,6 +130,7 @@ rootRouter.get('/status.json', (ctx: Koa.Context) => {
 app.use(rootRouter.routes());
 app.use(github.router.routes());
 app.use(twitter.router.routes());
+app.use(oembed.router.routes());
 
 const listener = app.listen(process.env.PORT || "4000", function () {
     logger.info( { address: listener.address(), ga_id: process.env.GA_ID || '(not set)' }, 'Running');
