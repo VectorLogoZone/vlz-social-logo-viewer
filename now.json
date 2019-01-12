@@ -2,8 +2,7 @@
   "name": "vlz-api",
   "alias": "api.vectorlogo.zone",
   "env": {
-    "PASSWORD": "@password",
-    "USERNAME": "@username"
+    "GA_ID": "UA-328425-25"
   },
   "features": {
     "cloud": "v2"
