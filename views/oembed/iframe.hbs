@@ -1,11 +1,28 @@
 <html>
 <head>
-    <title>{{title}} Vector (SVG) Logos</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{{title}} SVG Vector Logos</title>
+    <link rel="canonical" href="https://www.vectorlogo.zone/logos/{{logohandle}}/index.html" />
+    <style>
+        body { padding: 10px; }
+        a { text-decoration: none; }
+        .logo { width:100%;
+            box-shadow: 0 0 5px #1d1d1d;
+            border: solid #ccc 1px;
+        }
+
+        .tagline { font-size:16pt;font-family:sans-serif; padding: 10pt; }
+        .taglink { font-weight:bolder; text-decoration: none; }
+        @media only screen and (min-width: 768px) {
+            .logo-container { width: 400px; padding-right: 12pt; float: left; }
+        }
+    </style>
 </head>
 <body>
-    <p>
-        <img src="https://www.vectorlogo.zone/logos/{{logohandle}}/{{logohandle}}-ar21.svg" style="width:100%;"/>
-    </p>
-    <p>Perfectly formatted vector logos for {{title}} in consistent layouts and sizes in the standard .SVG file format</p>
+    <div class="logo-container">
+        <a href="https://www.vectorlogo.zone/logos/{{logohandle}}/index.html"><img src="https://www.vectorlogo.zone/logos/{{logohandle}}/{{logohandle}}-ar21.svg" class="logo"/></a>
+    </div>
+    <div class="tagline"><a href="https://www.vectorlogo.zone/logos/{{logohandle}}/index.html">VectorLogoZone</a> has perfectly formatted SVG vector logos for <a class="taglink" href="https://www.vectorlogo.zone/logos/{{logohandle}}/index.html">{{title}}</a>
+        (and <a href="https://www.vectorlogo.zone/">3,000+ others</a> in consistent layouts and sizes).</div>
 </body>
 </html>

@@ -13,7 +13,7 @@ router.get('/oembed/', async (ctx) => {
 });
 
 router.get('/oembed/index.html', async (ctx) => {
-    await ctx.render('oembed/index.hbs', { title: 'Embedding with oEmbed' });
+    await ctx.render('oembed/index.hbs', { title: 'oEmbed Test Page' , logohandle: 'vectorlogozone'});
 });
 
 router.get('/oembed/iframe.html', async (ctx) => {
@@ -36,14 +36,18 @@ router.get('/oembed/oembed.json', async (ctx) => {
 
     let maxWidth = 240;
     try {
-        maxWidth = Number(ctx.query['maxwidth'])
+        if ("maxwidth" in ctx.query) {
+            maxWidth = Number(ctx.query['maxwidth'])
+        }
     } catch (err) {
         // do nothing
     }
 
     let maxHeight = 120;
     try {
-        maxHeight = Number(ctx.query['maxheight'])
+        if ("maxheight" in ctx.query) {
+            maxHeight = Number(ctx.query['maxheight'])
+        }
     } catch (err) {
         // do nothing
     }
