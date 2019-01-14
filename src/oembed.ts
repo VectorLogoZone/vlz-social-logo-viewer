@@ -2,8 +2,11 @@ import * as KoaRouter from 'koa-router';
 import * as Pino from 'pino';
 import { URL } from "url";
 
+let _logger:Pino.Logger;
+
 function init(logger:Pino.Logger) {
     logger.info("oEmbed support data loaded");
+    _logger
 }
 
 const router = new KoaRouter();
@@ -34,7 +37,7 @@ router.get('/oembed/oembed.json', async (ctx) => {
         return;
     }
 
-    let maxWidth = 240;
+    let maxWidth = 1024;
     try {
         if ("maxwidth" in ctx.query) {
             maxWidth = Number(ctx.query['maxwidth'])
@@ -43,7 +46,7 @@ router.get('/oembed/oembed.json', async (ctx) => {
         // do nothing
     }
 
-    let maxHeight = 120;
+    let maxHeight = 500;
     try {
         if ("maxheight" in ctx.query) {
             maxHeight = Number(ctx.query['maxheight'])
@@ -53,9 +56,10 @@ router.get('/oembed/oembed.json', async (ctx) => {
     }
 
     let width = maxWidth;
-    let height = maxWidth / 2 + 24;     // rectangular + 1 line of text
+    let height = width > 768 ? 250 : (width + 1200) / 4;
     if (height > maxHeight) {
-        width = (maxHeight - 24) * 2
+        ctx.log.info({ height, maxHeight, url, headers: ctx.headers }, "Max height exceeded");
+        width = maxHeight;
     }
 
     let format = "json";
@@ -70,7 +74,7 @@ router.get('/oembed/oembed.json', async (ctx) => {
         return;
     }
 
-    let pathname = new URL(url).pathname;
+    let pathname:string = new URL(url).pathname;
 
     let logohandle = "vectorlogozone";
     if (pathname.startsWith("/logos/")) {
@@ -96,8 +100,8 @@ router.get('/oembed/oembed.json', async (ctx) => {
         result["author_url"] = "https://github.com/VectorLogoZone";
 
         result["html"] = `<iframe src=\"https://api.vectorlogo.zone/oembed/iframe.html?logohandle=${logohandle}\" width=\"${width}\" height=\"${height}\"></iframe>`;
-        result["width"] = 700;
-        result["height"] = 825;
+        result["width"] = width;
+        result["height"] = height;
 
         result["thumbnail_url"] = `https://svg2raster.fileformat.info/vlz.jsp?svg=%2Flogos%2F${logohandle}%2F${logohandle}-icon.svg&width=${thumbsize}&height=${thumbsize}&height=128`;
         result["thumbnail_width"] = thumbsize;
