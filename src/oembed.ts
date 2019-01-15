@@ -103,7 +103,7 @@ router.get('/oembed/oembed.json', async (ctx) => {
         result["width"] = width;
         result["height"] = height;
 
-        result["thumbnail_url"] = `https://svg2raster.fileformat.info/vlz.jsp?svg=%2Flogos%2F${logohandle}%2F${logohandle}-icon.svg&width=${thumbsize}&height=${thumbsize}&height=128`;
+        result["thumbnail_url"] = `https://svg2raster.fileformat.info/vlz.jsp?svg=%2Flogos%2F${logohandle}%2F${logohandle}-ar21.svg&width=${thumbsize}`;
         result["thumbnail_width"] = thumbsize;
         result["thumbnail_height"] = thumbsize;
 
