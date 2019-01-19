@@ -1,15 +1,15 @@
-# VLZ Social Logo Viewer [<img alt="VectorLogoZone Logo" src="https://social.vectorlogo.zone/favicon.svg" height="90" align="right" />](https://social.vectorlogo.zone/)
+# VectorLogoZone API [<img alt="VectorLogoZone Logo" src="https://api.vectorlogo.zone/favicon.svg" height="90" align="right" />](https://api.vectorlogo.zone/)
 
-[Social Logo Viewer](https://social.vectorlogo.zone/) is way to see all of a company's logos from the various social media sites.
+These are the backend APIs used by the main [VectorLogoZone](https://www.vectorlogo.zone/) website.
 
 ## Using
 
-Unfortunately, rate-limits mean that I cannot run it as an open service.  However, it is 
+Unfortunately, rate-limits mean that I cannot run it as an open service.  However, it is
 fairly easy to run your own instance.
 
 ## Running
 
-It is a TypeScript node.js app, so (once you have set the [settings](#settings): 
+It is a TypeScript node.js app, so (once you have set the [settings](#settings)):
 ```bash
 npm install
 npm run build
@@ -22,8 +22,14 @@ All settings are stored in environment variables.  The deploy and run scripts ge
 
 | name | description
 |------|----------------
-| USERNAME | the username to enter in the basic-auth dialog (default=`admin`)
-| PASSWORD | the password to enter in the basic-auth dialog (default=`password`)
+| TWITTER_BEARER_TOKEN | token for the Twitter API. Check [twitter_get_token.sh](bin/twitter_get_token.sh) to see how I got mine.
+| USERNAME | (not currently used) the username to enter in the basic-auth dialog (default=`admin`)
+| PASSWORD | (not currently used) the password to enter in the basic-auth dialog (default=`password`)
+
+## Endpoints
+
+ * `/api/twitter.json` - takes `id` parameter
+ * `/api/github.json` - takes `id` parameter
 
 
 ## Contributing
@@ -53,10 +59,17 @@ Website:
 [![TypeScript](https://www.vectorlogo.zone/logos/typescriptlang/typescriptlang-ar21.svg)](https://www.typescriptlang.org/ "Programming Language")
 [![Zeit](https://www.vectorlogo.zone/logos/zeit/zeit-ar21.svg)](https://www.zeit.co/ "Hosting")
 
-Logos:
+API Data Sources:
 
-[![InstantLogoSearch](https://www.vectorlogo.zone/logos/instantlogosearch/instantlogosearch-ar21.svg)](https://www.instantlogosearch.com/ "Logos")
+[![Github](https://www.vectorlogo.zone/logos/github/github-ar21.svg)](https://github.com/ "Github profile image (raster)")
+[![Twitter](https://www.vectorlogo.zone/logos/twitter/twitter-ar21.svg)](https://twitter.com/ "Twitter profile image (raster)")
+[![SVG Logo Search](https://www.vectorlogo.zone/logos/vectorlogozone/vectorlogozone-ar21.svg)](https://search.vectorlogo.zone/ "SVG Logo Search")
+
+To do:
+
 [![SuperTinyIcons](https://www.vectorlogo.zone/logos/supertinyicons/supertinyicons-ar21.svg)](https://github.com/edent/SuperTinyIcons "tile versions")
 [![SVGPorn](https://www.vectorlogo.zone/logos/svgporn/svgporn-ar21.svg)](https://svgporn.com/ "Icon versions of various logos")
- * https://github.com/simple-icons/simple-icons
- * facebook, twitter, github, youtube
+[![InstantLogoSearch](https://www.vectorlogo.zone/logos/instantlogosearch/instantlogosearch-ar21.svg)](https://www.instantlogosearch.com/ "Logos")
+
+* https://github.com/simple-icons/simple-icons
+* facebook, , youtube
