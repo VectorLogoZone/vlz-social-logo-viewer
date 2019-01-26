@@ -1,16 +1,17 @@
-import * as BasicAuth from 'basic-auth';
-import * as Koa from 'koa';
-import * as KoaPinoLogger from 'koa-pino-logger';
-import * as KoaRouter from 'koa-router';
-import * as KoaStatic from 'koa-static';
-import * as KoaViews from 'koa-views';
+import BasicAuth from 'basic-auth';
+import Koa = require('koa');
+import KoaPinoLogger from 'koa-pino-logger';
+import KoaRouter from 'koa-router';
+import KoaStatic from 'koa-static';
+import KoaViews from 'koa-views';
 import * as os from 'os';
 import * as path from 'path';
-import * as Pino from 'pino';
+import Pino from 'pino';
 
 import * as github from './github';
 import * as twitter from './twitter';
 import * as oembed from './oembed';
+import * as vlz from './vlz';
 
 const app = new Koa();
 app.proxy = true;
@@ -48,7 +49,7 @@ app.use(KoaViews(path.join(__dirname, '..', 'views'), {
     }
 }));
 
-function validateUser(ctx: Koa.Context): BasicAuth.BasicAuthResult | null {
+function validateUser(ctx: Koa.BaseContext): BasicAuth.BasicAuthResult | null {
     const user = BasicAuth(ctx.req);
     if (user && user.name === (process.env['USERNAME']) && user.pass === (process.env['PASSWORD'])) {
         return user;
@@ -78,7 +79,7 @@ rootRouter.get('/index.html', async (ctx) => {
     await ctx.redirect('/');
 });
 
-rootRouter.get('/status.json', (ctx: Koa.Context) => {
+rootRouter.get('/status.json', (ctx) => {
     const retVal: {[key:string]: any } = {};
 
     retVal["success"] = true;
@@ -131,8 +132,15 @@ app.use(rootRouter.routes());
 app.use(github.router.routes());
 app.use(twitter.router.routes());
 app.use(oembed.router.routes());
+app.use(vlz.router.routes());
 
-const listener = app.listen(process.env.PORT || "4000", function () {
-    logger.info( { address: listener.address(), ga_id: process.env.GA_ID || '(not set)' }, 'Running');
-});
+async function main() {
 
+    await vlz.init(logger);
+
+    const listener = app.listen(process.env.PORT || "4000", function () {
+        logger.info( { address: listener.address(), ga_id: process.env.GA_ID || '(not set)' }, 'Running');
+    });
+}
+
+main();

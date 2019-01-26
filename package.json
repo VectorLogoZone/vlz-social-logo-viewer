@@ -37,7 +37,7 @@
     "typescript": "^3.1.5"
   },
   "repository": {
-    "type" : "git",
-    "url" : "https://github.com/VectorLogoZone/vlz-api.git"
+    "type": "git",
+    "url": "https://github.com/VectorLogoZone/vlz-api.git"
   }
 }
