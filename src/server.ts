@@ -11,6 +11,7 @@ import Pino from 'pino';
 import * as github from './github';
 import * as twitter from './twitter';
 import * as oembed from './oembed';
+import * as quiz from './quiz';
 import * as vlz from './vlz';
 
 const app = new Koa();
@@ -35,7 +36,6 @@ app.use(async(ctx, next) => {
 });
 
 app.use(KoaStatic('static'));
-
 
 app.use(KoaViews(path.join(__dirname, '..', 'views'), {
     map: { hbs: 'handlebars' },
@@ -132,11 +132,13 @@ app.use(rootRouter.routes());
 app.use(github.router.routes());
 app.use(twitter.router.routes());
 app.use(oembed.router.routes());
+app.use(quiz.router.routes());
 app.use(vlz.router.routes());
 
 async function main() {
 
     await vlz.init(logger);
+    quiz.init(logger, vlz.getLogos());
 
     const listener = app.listen(process.env.PORT || "4000", function () {
         logger.info( { address: listener.address(), ga_id: process.env.GA_ID || '(not set)' }, 'Running');

@@ -61,6 +61,10 @@ async function init(logger:Logger) {
     }
 }
 
+function getLogos(): LogoInfo[] {
+    return Object.keys(logoMap).map(key => logoMap[key]);
+}
+
 function getLogoName(logohandle:string): string {
     if (logohandle in logoMap) {
         return logoMap[logohandle].name;
@@ -90,4 +94,4 @@ router.get('/api/existing.json', async (ctx) => {
     ctx.body = { success: true, message: 'Found', duplicates, exists: true, url };
 });
 
-export { init, router, getLogoName }
+export { init, router, getLogoName, getLogos, LogoInfo }
