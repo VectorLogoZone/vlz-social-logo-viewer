@@ -12,7 +12,7 @@
   "license": "AGPL-3.0",
   "dependencies": {
     "basic-auth": "^2.0.1",
-    "handlebars": "^4.0.12",
+    "handlebars": "^4.1.2",
     "koa": "^2.6.1",
     "koa-pino-logger": "^2.1.3",
     "koa-router": "^7.4.0",
@@ -37,7 +37,7 @@
     "typescript": "^3.1.5"
   },
   "repository": {
-    "type" : "git",
-    "url" : "https://github.com/VectorLogoZone/vlz-api.git"
+    "type": "git",
+    "url": "https://github.com/VectorLogoZone/vlz-api.git"
   }
 }
