@@ -1,6 +1,8 @@
-import * as KoaRouter from 'koa-router';
-import * as Pino from 'pino';
+import KoaRouter from 'koa-router';
+import Pino from 'pino';
 import { URL } from "url";
+
+import * as vlz from './vlz';
 
 let _logger:Pino.Logger;
 
@@ -16,7 +18,11 @@ router.get('/oembed/', async (ctx) => {
 });
 
 router.get('/oembed/index.html', async (ctx) => {
-    await ctx.render('oembed/index.hbs', { title: 'oEmbed Test Page' , logohandle: 'vectorlogozone'});
+    let logohandle = ctx.query['logohandle'];
+    if (!logohandle) {
+        logohandle = 'vectorlogozone';
+    }
+    await ctx.render('oembed/index.hbs', { title: 'oEmbed Test Page' , logohandle });
 });
 
 router.get('/oembed/iframe.html', async (ctx) => {
@@ -25,7 +31,7 @@ router.get('/oembed/iframe.html', async (ctx) => {
         ctx.status = 404;
         return;
     }
-    await ctx.render('oembed/iframe.hbs', { logohandle, title: logohandle });   //LATER: pull title from VLZ
+    await ctx.render('oembed/iframe.hbs', { logohandle, title: vlz.getLogoName(logohandle) });
 });
 
 router.get('/oembed/oembed.json', async (ctx) => {

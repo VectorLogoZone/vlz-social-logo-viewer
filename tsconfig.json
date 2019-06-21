@@ -1,8 +1,11 @@
 {
   "compileOnSave": true,
   "compilerOptions": {
+    "allowSyntheticDefaultImports": true,
     "alwaysStrict": true,
+    "esModuleInterop": true,
     "forceConsistentCasingInFileNames": true,
+    "lib": ["es5", "es6", "dom"],
     "module": "commonjs",
     "noEmitOnError": true,
     "noImplicitAny": true,

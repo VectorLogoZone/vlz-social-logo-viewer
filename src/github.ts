@@ -1,8 +1,8 @@
-import * as KoaRouter from 'koa-router';
+import KoaRouter from 'koa-router';
 
 //import * as fs from 'fs';
 //import * as path from 'path';
-import * as rp from 'request-promise-native';
+import rp from 'request-promise-native';
 
 const router = new KoaRouter();
 
