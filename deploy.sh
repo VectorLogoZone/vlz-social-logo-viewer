@@ -1,15 +1,12 @@
 #!/bin/bash
-#
-# deploy to zeit
-#
+#docker login -u oauth2accesstoken -p "$(gcloud auth print-access-token)" https://gcr.io
 
+docker build -t vlz-api .
+docker tag vlz-api:latest gcr.io/vectorlogozone/api:latest
+docker push gcr.io/vectorlogozone/api:latest
 
-set -o errexit
-set -o pipefail
-set -o nounset
-
-now \
-    --env COMMIT=$(git rev-parse --short HEAD) \
-    --env LASTMOD=$(date -u +%Y-%m-%dT%H:%M:%SZ) \
-    && now alias \
-    && now rm $(cat ./now.json | jq '.name' --raw-output) --safe --yes
+gcloud beta run deploy vlz-api \
+	--image gcr.io/vectorlogozone/api \
+	--project vectorlogozone \
+    --region us-central1 \
+	--update-env-vars "COMMIT=$(git rev-parse --short HEAD),GA_ID=UA-328425-25,LASTMOD=$(date -u +%Y-%m-%dT%H:%M:%SZ)"
