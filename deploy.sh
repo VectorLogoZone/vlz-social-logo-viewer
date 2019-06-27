@@ -7,6 +7,7 @@ docker push gcr.io/vectorlogozone/api:latest
 
 gcloud beta run deploy vlz-api \
 	--image gcr.io/vectorlogozone/api \
+	--platform managed \
 	--project vectorlogozone \
     --region us-central1 \
 	--update-env-vars "COMMIT=$(git rev-parse --short HEAD),GA_ID=UA-328425-25,LASTMOD=$(date -u +%Y-%m-%dT%H:%M:%SZ)"
