@@ -1,8 +1,8 @@
-# VectorLogoZone API [<img alt="VectorLogoZone Logo" src="https://api.vectorlogo.zone/favicon.svg" height="90" align="right" />](https://api.vectorlogo.zone/)
+# VectorLogoZone Tools [<img alt="VectorLogoZone Logo" src="https://tools.vectorlogo.zone/favicon.svg" height="90" align="right" />](https://tools.vectorlogo.zone/)
 
-These are the backend APIs used by the main [VectorLogoZone](https://www.vectorlogo.zone/) website.
+These are some interactive tools and the backend APIs used by the main [VectorLogoZone](https://www.vectorlogo.zone/) website.
 
-## Using
+## Using the API
 
 Unfortunately, rate-limits mean that I cannot run it as an open service.  However, it is
 fairly easy to run your own instance.
@@ -57,7 +57,7 @@ Website:
 [![pino](https://www.vectorlogo.zone/logos/getpinoio/getpinoio-ar21.svg)](https://www.getpino.io/ "Logging")
 [![Shoelace CSS](https://www.vectorlogo.zone/logos/shoelacestyle/shoelacestyle-ar21.svg)](https://shoelace.style/ "CSS")
 [![TypeScript](https://www.vectorlogo.zone/logos/typescriptlang/typescriptlang-ar21.svg)](https://www.typescriptlang.org/ "Programming Language")
-[![Zeit](https://www.vectorlogo.zone/logos/zeit/zeit-ar21.svg)](https://www.zeit.co/ "Hosting")
+[![Google Cloud Run](https://www.vectorlogo.zone/logos/google/google-ar21.svg)](https://cloud.google.com/run/ "Hosting")
 
 API Data Sources:
 
