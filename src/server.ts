@@ -8,9 +8,11 @@ import * as os from 'os';
 import * as path from 'path';
 import Pino from 'pino';
 
+import * as funding from './funding';
 import * as github from './github';
 import * as twitter from './twitter';
 import * as oembed from './oembed';
+import * as random from './random';
 import * as quiz from './quiz';
 import * as vlz from './vlz';
 
@@ -34,6 +36,7 @@ app.use(async(ctx, next) => {
         await ctx.render('500.hbs', { title: 'Server Error', message: err.message });
     }
 });
+
 
 app.use(KoaStatic('static'));
 
@@ -132,12 +135,15 @@ app.use(rootRouter.routes());
 app.use(github.router.routes());
 app.use(twitter.router.routes());
 app.use(oembed.router.routes());
+app.use(random.router.routes());
 app.use(quiz.router.routes());
 app.use(vlz.router.routes());
+app.use(funding.router.routes());
 
 async function main() {
 
     await vlz.init(logger);
+    await funding.init();
     quiz.init(logger, vlz.getLogos());
 
     const listener = app.listen(process.env.PORT || "4000", function () {

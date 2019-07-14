@@ -1,5 +1,8 @@
 #!/bin/bash
 
+set -o errexit
+set -o pipefail
+set -o nounset
 
 docker build -t vlz-api .
 docker run \
