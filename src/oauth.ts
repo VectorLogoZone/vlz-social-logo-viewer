@@ -5,7 +5,16 @@ const router = new KoaRouter();
 
 router.use(KoaBody({ multipart: true }));
 
-router.get('/oauth.html', async (ctx) => {
+router.get('/oauth/callback', async (ctx) => {
+    ctx.log.info( {
+        req: ctx.req,
+        body: ctx.request.body,
+    }, 'oauth callback');
+
+    ctx.body = { success: true };
+});
+
+router.get('/oauth/landing.html', async (ctx) => {
 
     await ctx.render('oauth.hbs', { 
         query: JSON.stringify(ctx.query, null, 2),
@@ -15,7 +24,7 @@ router.get('/oauth.html', async (ctx) => {
 
 });
 
-router.post('/oauth.html', async (ctx) => {
+router.post('/oauth/landing.html', async (ctx) => {
 
     await ctx.render('oauth.hbs', {
         query: JSON.stringify(ctx.query, null, 2),
