@@ -11,7 +11,6 @@
   "license-actual-since-npm-does-not-follow-the-spdx-spec": "AGPL-3.0-or-later",
   "license": "AGPL-3.0",
   "dependencies": {
-    "@types/js-yaml": "^3.12.1",
     "axios": "^0.19.0",
     "basic-auth": "^2.0.1",
     "handlebars": "^4.1.2",
@@ -30,6 +29,7 @@
     "@types/axios": "^0.14.0",
     "@types/basic-auth": "^1.1.2",
     "@types/handlebars": "^4.0.39",
+    "@types/js-yaml": "^3.12.1",
     "@types/koa": "^2.0.46",
     "@types/koa-pino-logger": "^2.1.2",
     "@types/koa-router": "^7.0.32",
