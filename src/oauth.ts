@@ -16,7 +16,7 @@ router.get('/oauth/callback', async (ctx) => {
 
 router.get('/oauth/landing.html', async (ctx) => {
 
-    await ctx.render('oauth.hbs', { 
+    await ctx.render('oauth/landing.hbs', { 
         query: JSON.stringify(ctx.query, null, 2),
         postData: 'request was a GET, not a POST',
         title: 'Oauth Callback Data' 
@@ -26,7 +26,7 @@ router.get('/oauth/landing.html', async (ctx) => {
 
 router.post('/oauth/landing.html', async (ctx) => {
 
-    await ctx.render('oauth.hbs', {
+    await ctx.render('oauth/landing.hbs', {
         query: JSON.stringify(ctx.query, null, 2),
         postData: JSON.stringify(ctx.request.body, null, 2),
         title: 'Oauth Callback Data'
