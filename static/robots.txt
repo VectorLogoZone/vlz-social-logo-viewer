@@ -1,5 +1,5 @@
 #
-# robots.txt for api.vectorlogo.zone
+# robots.txt for tools.vectorlogo.zone
 #
 
 

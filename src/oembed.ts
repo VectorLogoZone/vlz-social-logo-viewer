@@ -105,7 +105,7 @@ router.get('/oembed/oembed.json', async (ctx) => {
         result["author_name"] =  "VectorLogoZone";
         result["author_url"] = "https://github.com/VectorLogoZone";
 
-        result["html"] = `<iframe src=\"https://api.vectorlogo.zone/oembed/iframe.html?logohandle=${logohandle}\" width=\"${width}\" height=\"${height}\"></iframe>`;
+        result["html"] = `<iframe src=\"https://tools.vectorlogo.zone/oembed/iframe.html?logohandle=${logohandle}\" width=\"${width}\" height=\"${height}\"></iframe>`;
         result["width"] = width;
         result["height"] = height;
 
