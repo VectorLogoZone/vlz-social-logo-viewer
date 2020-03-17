@@ -52,7 +52,8 @@ app.use(KoaViews(path.join(__dirname, '..', 'views'), {
     }
 }));
 
-function validateUser(ctx: Koa.BaseContext): BasicAuth.BasicAuthResult | null {
+function validateUser(ctx: Koa.ParameterizedContext<any, KoaRouter.IRouterParamContext<any, {}>>
+): BasicAuth.BasicAuthResult | null {
     const user = BasicAuth(ctx.req);
     if (user && user.name === (process.env['USERNAME']) && user.pass === (process.env['PASSWORD'])) {
         return user;
