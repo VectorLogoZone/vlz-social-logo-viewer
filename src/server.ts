@@ -67,11 +67,11 @@ function validateUser(ctx: Koa.ParameterizedContext<any, KoaRouter.IRouterParamC
 
 const rootRouter = new KoaRouter();
 
-rootRouter.get('/', async (ctx) => {
+rootRouter.get('/', async (ctx: any) => {
     await ctx.render('index.hbs', { title: 'VectorLogoZone APIs' });
 });
 
-rootRouter.post('/index.html', async (ctx) => {
+rootRouter.post('/index.html', async (ctx: any) => {
     const user = validateUser(ctx);
     if (!user) {
         return;

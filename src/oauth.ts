@@ -1,8 +1,8 @@
 import KoaRouter from 'koa-router';
-import KoaBody from 'koa-body';
+//import KoaBody from 'koa-body';
 
 const router = new KoaRouter();
-
+/*
 router.use(KoaBody({ multipart: true }));
 
 router.get('/oauth/callback', async (ctx) => {
@@ -33,5 +33,6 @@ router.post('/oauth/landing.html', async (ctx) => {
     });
 
 });
+*/
 
 export { router }

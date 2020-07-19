@@ -20,7 +20,7 @@ function getRandomInt(max: number): number {
 }
 
 
-router.get('/api/random.json', async (ctx) => {
+router.get('/api/random.json', async (ctx:any) => {
 
     if (logos.length === 0) {
         init(ctx.logger, VLZ.getLogos());

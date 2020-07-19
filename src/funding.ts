@@ -112,7 +112,15 @@ function expandFundingSources(source: string, identifiers: string|string[]): Fun
 
 function process(logger: Logger, raw: string): object {
     const retVal:any = {};
-    const data = yaml.safeLoad(raw);
+    const data:any = yaml.safeLoad(raw);
+
+    if (!data || typeof data === 'string') {
+        logger.error( { raw: data }, "Invalid yaml")
+        return {
+            success: false,
+            messages: [ "Invalid YAML" ]
+        }
+    }
 
     const sources:FundingSource[] = [];
     const messages:string[] = [];

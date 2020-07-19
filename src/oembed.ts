@@ -17,7 +17,7 @@ router.get('/oembed/', async (ctx) => {
     ctx.redirect('index.html');
 });
 
-router.get('/oembed/index.html', async (ctx) => {
+router.get('/oembed/index.html', async (ctx:any) => {
     let logohandle = ctx.query['logohandle'];
     if (!logohandle) {
         logohandle = 'vectorlogozone';
@@ -25,7 +25,7 @@ router.get('/oembed/index.html', async (ctx) => {
     await ctx.render('oembed/index.hbs', { title: 'oEmbed Test Page' , logohandle });
 });
 
-router.get('/oembed/iframe.html', async (ctx) => {
+router.get('/oembed/iframe.html', async (ctx:any) => {
     let logohandle = ctx.query['logohandle'];
     if (!logohandle) {
         ctx.status = 404;
