@@ -11,7 +11,7 @@
   "license-actual-since-npm-does-not-follow-the-spdx-spec": "AGPL-3.0-or-later",
   "license": "AGPL-3.0",
   "dependencies": {
-    "axios": "^0.19.0",
+    "axios": "^0.21.1",
     "basic-auth": "^2.0.1",
     "handlebars": "4.7.6",
     "js-yaml": "3.14.0",
